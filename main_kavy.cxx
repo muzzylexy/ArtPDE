@@ -12,9 +12,9 @@ int main() {
 
     //DemoGeometry2D();
 
-    //DemoGeometry3D();
+    DemoGeometry3D();
 
-    DemoFunctionSpace();
+    //DemoFunctionSpace();
 	system("pause");
     return 0;
 }

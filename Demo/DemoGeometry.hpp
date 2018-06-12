@@ -9,7 +9,7 @@
 #include <assert.h>
 #include "Project/art_project.hpp"
 #include "Geometry/geometry.hpp"
-
+#include "position_vector.hpp"
 void DemoGeometry2D() {
     using namespace art_pde;
     using namespace position_vector;

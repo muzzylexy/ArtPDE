@@ -22,7 +22,7 @@ namespace art_pde{
         static std::shared_ptr<Geometry> create(){
             return make_shared_Geometry();
         }
-
+		
         void debugFunc(){
                 //std::cout<< geo->c_getTotalVec_PtrVertex()[0]->getPtr_data()<<std::endl;
 //            for(auto &ptr_vertex: this->getTotalVec_PtrVertex()){
