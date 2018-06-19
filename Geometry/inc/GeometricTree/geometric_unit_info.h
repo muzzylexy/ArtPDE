@@ -50,7 +50,10 @@ namespace art_pde{namespace geometry{namespace geometric_tree{
 				double z{0.0};
 				int vertex_num{0};
 				std::cout << "next\n";
-				std::cout << *ptr_face << "\n";
+				for (auto edge_ptr : ptr_face->c_getConnected_Edge()) {
+					std::cout << *edge_ptr << "\n";
+				}
+				
 				for (auto ptr_vertex : ptr_face->c_getConnected_Vertex()){
 					++vertex_num;
 					x += ptr_vertex->getPtr_data()->getX();
