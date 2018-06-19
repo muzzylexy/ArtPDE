@@ -8,7 +8,7 @@
 #include <set>
 #include <vector>
 #include "geometric_tree_components.hpp"
-
+#include "geometric_unit_info.h"
 namespace art_pde{ namespace geometry {
     namespace geometric_tree {
 
@@ -47,6 +47,7 @@ namespace art_pde{ namespace geometry {
                     GeometricTreeParent<Edge<DataType>>(){
                 this->setPtr_data(ptr_data);
             }
+
 
             void link_self() override {
                 this->linked_to = this->shared_from_this();
@@ -95,6 +96,10 @@ namespace art_pde{ namespace geometry {
                     GeometricTreeChild<Vertex<DataType>>() {
             }
 
+			void accept(Visitor<Edge>& v){
+				v.visit(*this);
+			}
+
             void link_self() override {
                 this->linked_to = this->shared_from_this();
             }
@@ -109,7 +114,8 @@ namespace art_pde{ namespace geometry {
 
             friend std::ostream &operator<<(std::ostream &os, const Edge<DataType> &edge) {
                 auto it = edge.c_getConnected_Vertex().cbegin();
-                os << "(" <<**it << " -> " << **(++it) << ")" ;
+				os << "(" << **it << " -> ";
+				os << **(++it) << ")";
                 return os;
             }
 
@@ -155,6 +161,10 @@ namespace art_pde{ namespace geometry {
                     GeometricTree<Face<DataType>>(geometric_type),
                     GeometricTreeParent<Cell<DataType>>(),
                     GeometricTreeChild<Edge<DataType>>() {}
+
+			void accept(Visitor<Face>& v){
+				v.visit(*this);
+			}
 
             void link_self() override {
                 this->linked_to = this->shared_from_this();
@@ -230,6 +240,10 @@ namespace art_pde{ namespace geometry {
             Cell(GeometricType geometric_type) :
                     GeometricTree<Cell<DataType>>(geometric_type),
                     GeometricTreeChild<Face<DataType>>() {}
+
+			void accept(Visitor<Cell>& v){
+				v.visit(*this);
+			}
 
             void link_self() override {
                 this->linked_to = this->shared_from_this();

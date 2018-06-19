@@ -124,6 +124,7 @@ void DemoGeometry3D() {
     std::cout << geo->getTotalNum_Cell() << "\n";
 
     std::cout << ">> Listing all relations of vertex" << "\n";
+	
     for(auto &ptr_vertex: geo->c_getTotalVec_PtrVertex()){
         std::cout << "GeoType is " << ptr_vertex->getGeometric_Type() << " ; ";
         std::cout << *ptr_vertex << "\n";
@@ -152,6 +153,13 @@ void DemoGeometry3D() {
             std::cout << *ptr_vertex << std::endl;
         }
     }
+
+	pRefineQuadratic<ComputePositionVector<3>> a;
+	a.refine(geo->c_getTotalVec_PtrCell().at(0));
+
+	for (auto i : a.getPoint()){
+		std::cout << i->getX() << " " << i->getY() << " " << i->getZ() << "\n";
+	}
 }
 
 

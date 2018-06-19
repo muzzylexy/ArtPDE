@@ -10,10 +10,10 @@ int main() {
 
     //DemoArtProject();
 
-    //DemoGeometry2D();
+   // DemoGeometry2D();
 
-    DemoGeometry3D();
-
+   DemoGeometry3D();
+	
     //DemoFunctionSpace();
 	system("pause");
     return 0;

@@ -69,7 +69,7 @@ namespace art_pde { namespace geometry { namespace mesh_type {
                         return merge_algo.merge(this->vec_ptr_edge);
                     }
 
-                protected:
+				protected:
                     typename type::VecPtrEdgeType &getTotalVec_PtrEdge(){
                         return this->vec_ptr_edge;
                     }
