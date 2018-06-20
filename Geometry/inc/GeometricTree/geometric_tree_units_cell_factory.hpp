@@ -33,11 +33,11 @@ namespace art_pde{ namespace geometry {
                     vec_ptr_edge[1] = genEdge(v2, v3);//2
                     vec_ptr_edge[2] = genEdge(v3, v4);//3
                     vec_ptr_edge[3] = genEdge(v4, v1);//4
-                    vec_ptr_edge[4] = genEdge(v6, v5);//5
+                    vec_ptr_edge[4] = genEdge(v5, v6);//5
                     vec_ptr_edge[5] = genEdge(v6, v7);//6
                     vec_ptr_edge[6] = genEdge(v7, v8);//7
                     vec_ptr_edge[7] = genEdge(v8, v5);//8
-                    vec_ptr_edge[8] = genEdge(v5, v1);//9
+                    vec_ptr_edge[8] = genEdge(v1, v5);//9
                     vec_ptr_edge[9] = genEdge(v2, v6);//10
                     vec_ptr_edge[10] = genEdge(v3, v7);//11
                     vec_ptr_edge[11] = genEdge(v4, v8);//12
@@ -60,11 +60,11 @@ namespace art_pde{ namespace geometry {
                     vec_ptr_face[3] = ptr_quad_face;
 
                     ptr_quad_face = std::make_shared<Quadrilateral_Face<DataType>>();
-                    ptr_quad_face->create(vec_ptr_edge[2], vec_ptr_edge[10], vec_ptr_edge[6], vec_ptr_edge[11]);
+                    ptr_quad_face->create(vec_ptr_edge[2], vec_ptr_edge[11], vec_ptr_edge[6], vec_ptr_edge[10]);
                     vec_ptr_face[4] = ptr_quad_face;
 
                     ptr_quad_face = std::make_shared<Quadrilateral_Face<DataType>>();
-                    ptr_quad_face->create(vec_ptr_edge[3], vec_ptr_edge[11], vec_ptr_edge[7], vec_ptr_edge[8]);
+                    ptr_quad_face->create(vec_ptr_edge[3], vec_ptr_edge[8], vec_ptr_edge[7], vec_ptr_edge[11]);
                     vec_ptr_face[5] = ptr_quad_face;
 
                     cell->addChild(vec_ptr_face[0]);

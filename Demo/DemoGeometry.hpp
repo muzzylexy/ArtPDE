@@ -155,10 +155,17 @@ void DemoGeometry3D() {
     }
 
 	pRefineQuadratic<ComputePositionVector<3>> a;
-	a.refine(geo->c_getTotalVec_PtrCell().at(0));
+	a.refine(*(geo->c_getTotalVec_PtrCell().at(0)));
 
 	for (auto i : a.getPoint()){
 		std::cout << i->getX() << " " << i->getY() << " " << i->getZ() << "\n";
+	}
+
+	FaceNormal<ComputePositionVector<3>> b;
+	auto& c = b.normal(*(geo->c_getTotalVec_PtrCell().at(0)->c_getConnected_Face().at(5)));
+
+	for (auto& i : c){
+		std::cout << i << std::endl;
 	}
 }
 

@@ -77,11 +77,11 @@ namespace art_pde{ namespace geometry {
 
         // -------- Edge <Start> -----------
         template <typename DataType>
-        class Edge:
-                public GeometricTree<Edge<DataType>>,
-                public GeometricTreeParent<Face<DataType>>,
-                public GeometricTreeChild<Vertex<DataType>>,
-                public std::enable_shared_from_this<Edge<DataType>>{
+		class Edge :
+			public GeometricTree<Edge<DataType>>,
+			public GeometricTreeParent<Face<DataType>>,
+			public GeometricTreeChild<Vertex<DataType>>,
+            public std::enable_shared_from_this<Edge<DataType>>{
         public:
             struct type{
                 using PtrVertexType = std::shared_ptr<Vertex<DataType>>;
